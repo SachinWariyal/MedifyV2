@@ -1,0 +1,65 @@
+.Hero-section{
+    height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E7F0FF;
+    padding: 20px;  
+}
+.left-side{
+    font-size: 1.2rem;
+    margin-right: 50px;
+}
+.first-line{
+    font-size: 2rem;
+    color: rgb(28, 28, 92);
+}
+.Medical-text{
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: black;
+}
+.Centers-text{
+    font-size: 2.5rem;
+    margin-left: 20px;
+    font-weight: 900;
+    color: rgb(63, 146, 179);
+}
+.last-line{
+    font-size: 1.5rem;
+    opacity: 50%;
+    margin-bottom: 20px;
+}
+.hero-button{
+    padding: 1rem 2rem;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 1.75rem;
+    background-color: #2AA8FF;
+    font-size: 1.2rem;
+    letter-spacing: .8px;
+    cursor: pointer;
+    transition: all .4s ease;
+}
+@media screen and (max-width:900px) {
+    .Hero-section{
+        flex-direction: column;
+        text-align: center;
+    }
+    .left-side{
+        margin-right: 0;
+    }
+    .last-line{
+        margin-bottom: 40px;
+    }
+    .right-side{
+        margin-top: 20px;
+    }
+    .hero-button{
+        margin-top: 20px;
+    }
+
+    img{
+        width: 100%;
+    }
+}
