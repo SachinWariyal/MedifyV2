@@ -1,0 +1,68 @@
+.search-results{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #E7F0FF;
+}
+.heading{
+    margin-top: 2rem;
+}
+.sub-heading{
+    opacity: 50%;
+}
+.list-item{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: white;
+}
+.hospital-details{
+    margin-left: 1.5rem;
+}
+.hospital-name{
+    color: #14BEF0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.hospital-address{
+    font-weight: bold;
+}
+.hospital-charges{
+    margin-top: 1rem;
+}
+.span-green{
+    color: green;
+    font-weight: bold;
+}
+.span-cost{
+    text-decoration: line-through;
+    margin: 0 1rem;
+}
+.hospital-booking{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 2rem;
+}
+.available{
+    color: green;
+    margin-bottom: 1rem;
+}
+.book-btn{
+    padding: 1rem 2rem;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 1.75rem;
+    background-color: #2AA8FF;
+    font-size: .7rem;
+    letter-spacing: .8px;
+    cursor: pointer;
+    transition: all .4s ease;
+}
