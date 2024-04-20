@@ -1,0 +1,9 @@
+.swiper-container{
+    width: 100%;
+    max-width:1200px ;
+    margin: 2rem 0;
+    margin-left: 135px;
+    /* background-color: #E7F0FF; */
+    padding: 2rem;
+    gap: 1rem;
+}

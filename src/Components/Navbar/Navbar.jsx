@@ -1,27 +1,44 @@
-// import React from 'react'
-import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import React from 'react'
+// import { Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
+// import { toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+import Snackbar from '@mui/material/Snackbar';
+
+// toast.configure();
 import "./Navbar.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark, faBars } from "@fortawesome/free-solid-svg-icons";
 import { useState } from 'react';
 const Navbar = () => {
     const [nav, setNav]= useState(false);
-    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+    // const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+    const [open, setOpen] = React.useState(false);
 
     const openNav = () => {
         setNav(!nav);
     }
 
-    const handleChatBtnClick = () =>{
-        if(!isButtonDisabled){
-            toast.info("Experiencing high traffic, Please wait a moment.",{
-                position: toast.POSITION.TOP_CENTER,
-                onOpen: () => setIsButtonDisabled(true),
-                onClose: () => setIsButtonDisabled(false),
-              });
-        }
+    // const handleChatBtnClick = () =>{
+    //     console.log("clicked")
+    //     if(!isButtonDisabled){
+    //         toast.info("Experiencing high traffic, Please wait a moment.",{
+    //             position: toast.POSITION.TOP_CENTER,
+    //             onOpen: () => setIsButtonDisabled(true),
+    //             onClose: () => setIsButtonDisabled(false),
+    //           });
+    //     }
+    // }
+    const handleChatBtnClick = () => {
+        setOpen(true);
     }
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+    
+        setOpen(false);
+      };
 
   return (
     <div className='navbar-section'>
@@ -33,13 +50,14 @@ const Navbar = () => {
 
         <ul className='navbar-items'>
             <li>
-                <Link to='/' className='navbar-links'>Home</Link>
+                <Link smooth to='/' className='navbar-links'>Home</Link>
             </li>
             <li>
-                <Link to='#doctors' className='navbar-links'>Find Doctors</Link>
+                {/* <a href="#doctors"className='navbar-links'>Find Doctors</a> */}
+                <Link smooth to='#doctors' className='navbar-links'>Find Doctors</Link>
             </li>
             <li>
-                <Link to='#hospitals' className='navbar-links'>Hospitals</Link>
+                <Link smooth to='#hospitals' className='navbar-links'>Hospitals</Link>
             </li>
             <li>
                 <Link to='#medicines' className='navbar-links'>Medicines</Link>
@@ -57,11 +75,18 @@ const Navbar = () => {
         <button
             className='navbar-btn'
             type='button'
-            disabled={isButtonDisabled}
+            // disabled={isButtonDisabled}
             onClick={handleChatBtnClick}
         >
             My Bookings
         </button>
+        <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        message="Experiencing high traffic, Please wait a moment."
+        // action={action}
+      />
 
         <div className={`mobile-navbar ${nav ? "open-nav" : ""}`}>
             <div className="mobile-navbar-close">

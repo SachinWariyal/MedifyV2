@@ -1,4 +1,5 @@
 // import { useState } from "react"
+import Doctors from "../Components/Doctors/Doctors"
 import Hero from "../Components/Hero/Hero"
 import Navbar from "../Components/Navbar/Navbar"
 import Offers from "../Components/Offers/Offers"
@@ -14,6 +15,7 @@ const Home = () => {
         <Hero/>
         <Search/>
         <Offers/>
+        <Doctors/>
     </div>
   )
 }

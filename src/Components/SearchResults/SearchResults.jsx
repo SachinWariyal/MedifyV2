@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import hospitalImg from "../../assets/hospital-icon-search.png";
 import "./SearchResults.css";
+import { useNavigate } from 'react-router-dom';
 
 const SearchResults = ({city, state}) => {
    const [SearchResults, setSearchResults] = useState([]);
@@ -16,6 +17,10 @@ const SearchResults = ({city, state}) => {
     .catch(error => console.log("Error fetching Medical centers:", error));
     // console.log(SearchResults);
   },[city,state]);
+  const navigate = useNavigate();
+  const handleBookAppointment = () => {
+    navigate('/appointment');
+}
 
   return (
     <div>
@@ -38,7 +43,7 @@ const SearchResults = ({city, state}) => {
                         </div>
                         <div className="hospital-booking">
                             <p className='available'>Available Today</p>
-                            <button className='book-btn'>Book free center visit</button>
+                            <button className='book-btn' onClick={handleBookAppointment}>Book free center visit</button>
                         </div>
                     </li>
                 ))}

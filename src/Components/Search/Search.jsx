@@ -47,7 +47,7 @@ const Search = () => {
   }
 
   return (
-    <div className="search-full">
+    <div className="search-full" id="hospitals">
     <div className="search-container">
         {/* <input type="text" className="state" placeholder='State' onChange={handleStateChange}/> */}
           <select name="" id="" onChange={handleStateChange}>
