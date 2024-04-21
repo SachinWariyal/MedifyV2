@@ -5,7 +5,7 @@ import { faMagnifyingGlass }from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import SearchResults from "../SearchResults/SearchResults";
-
+import { useNavigate } from 'react-router-dom';
 const Search = () => {
   const [states, setStates] = useState([]);
   const [selectedState, setSelectedState] = useState("");
@@ -21,7 +21,7 @@ const Search = () => {
   const handleStateChange = (event) => {
     const stateName = event.target.value;
     setSelectedState(stateName);
-    // console.log(stateName);
+    console.log(stateName);
     // console.log(selectedState);
 
     //fetch cities based on state:
@@ -33,15 +33,18 @@ const Search = () => {
   const handleCityChange = (event) => {
     const cityName = event.target.value;
     setSelectedCity(cityName);
-    // console.log(selectedCity);
+    console.log(selectedCity);
     // console.log(cityName);
   }
+  const navigate = useNavigate();
   const handleSearch =() =>{
     if(selectedState===""){
       return;
     }else{
       setSearched(true);
+      navigate('/hospitals', { state: selectedState, city: selectedCity });
       console.log("Search Clicked")
+      console.log()
 
     }
   }
@@ -64,7 +67,7 @@ const Search = () => {
           ))}
         </select>
         <div className="search-box" onClick={handleSearch}  >
-        <FontAwesomeIcon icon={faMagnifyingGlass} /> Search
+          <FontAwesomeIcon icon={faMagnifyingGlass} /> Search
         </div>
     </div>
         {searched && <SearchResults state={selectedState} city={selectedCity} searched={handleSearch}/>}

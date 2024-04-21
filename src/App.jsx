@@ -3,6 +3,7 @@ import './App.css'
 import Home from './Pages/Home';
 // import BookAppointment from './Components/BookAppointment/BookAppointment';
 import Appointment from './Pages/Appointment';
+import Hospitals from './Pages/Hospitals';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/appointment' element={<Appointment/>}/>
+          <Route path='/hospitals' element={<Hospitals/>}/>
         </Routes>
       </Router>
     </div>
